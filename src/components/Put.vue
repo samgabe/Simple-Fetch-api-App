@@ -23,6 +23,9 @@
       <pre class="text-sm">{{ JSON.stringify(result, null, 2) }}</pre>
     </div>
 
+    <button>
+      <router-link class="text-blue-500 hover:underline" to="/">Back to Home</router-link>
+    </button>
   </div>
 </template>
 
@@ -52,5 +55,6 @@ async function submitForm() {
     result.value = await res.json()
     console.log(result.value)
     loading.value = false
+    
 }
 </script>
