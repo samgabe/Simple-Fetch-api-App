@@ -4,26 +4,30 @@ import { ref, onMounted } from "vue"
 const posts = ref([])
 const loading = ref(true)
 
-onMounted(async () => {
+const fetchAll= (async () => {
+  loading.value= true;
   const res = await fetch("https://jsonplaceholder.typicode.com/posts")
   posts.value = await res.json()
   loading.value = false
+})
+onMounted(() => {
+  fetchAll();
 })
 </script>
 
 <template>
   <div>
-    <h2 class="text-2xl font-bold mb-4">Latest Posts</h2>
+    <h2 class="m-10 font-semibold ">Latest Posts</h2>
 
     <p v-if="loading">Loading...</p>
 
-    <div 
+    <div  
       v-for="post in posts" 
       :key="post.id" 
-      class="p-4 mb-4 border rounded-lg shadow-sm"
+      class="m-10 p-4 border border-gray-300 rounded-lg shadow-md"
     >
-      <h3 class="text-xl font-semibold">{{ post.title }}</h3>
-      <p class="text-gray-600">{{ post.body }}</p>
+      <h3 class="">{{ post.title }}</h3>
+      <p class="">{{ post.body }}</p>
     </div>
   </div>
 </template>

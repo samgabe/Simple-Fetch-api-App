@@ -13,17 +13,17 @@ onMounted(async () => {
 
 <template>
   <div>
-    <h2 class="text-2xl font-bold mb-4">Latest Albums</h2>
+    <h2 class="m-10 font-semibold">Latest Albums</h2>
 
     <p v-if="loading">Loading...</p>
 
     <div 
       v-for="album in albums" 
       :key="album.id" 
-      class="p-4 mb-4 border rounded-lg shadow-sm"
+      class="m-10 p-4 border border-gray-300 rounded-lg shadow-md"
     >
-      <h3 class="text-xl font-semibold">{{ album.title }}</h3>
-      <p class="text-gray-600">{{ album.body }}</p>
+      <h3 class="">{{ album.title }}</h3>
+      <p class="">{{ album.body }}</p>
     </div>
   </div>
 </template>
